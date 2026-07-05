@@ -25,9 +25,9 @@ const navSections = [
     defaultOpen: true,
     items: [
       { label: "Overview", icon: LayoutDashboard, active: true },
-      { label: "My tasks", icon: ListChecks, count: "12" },
-      { label: "Inbox", icon: Bell, count: "4" },
-      { label: "Messages", icon: MessageSquareText },
+      { label: "My tasks", icon: ListChecks, count: "12", active: false },
+      { label: "Inbox", icon: Bell, count: "4", active: false },
+      { label: "Messages", icon: MessageSquareText, active: false },
     ],
   },
   {
@@ -36,7 +36,11 @@ const navSections = [
     items: [
       { label: "Q3 roadmap", icon: FolderKanban, accent: "bg-[#d9cffb]" },
       { label: "Website launch", icon: FolderKanban, accent: "bg-[#d3edd9]" },
-      { label: "Customer onboarding", icon: FolderKanban, accent: "bg-[#f4ead7]" },
+      {
+        label: "Customer onboarding",
+        icon: FolderKanban,
+        accent: "bg-[#f4ead7]",
+      },
     ],
   },
   {
