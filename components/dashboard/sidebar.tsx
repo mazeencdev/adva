@@ -17,9 +17,24 @@ import {
   Sparkles,
   UsersRound,
 } from "lucide-react";
-import { useState } from "react";
+import { useState, type ComponentType } from "react";
+import type { LucideProps } from "lucide-react";
 
-const navSections = [
+type NavItem = {
+  label: string;
+  icon: ComponentType<LucideProps>;
+  active?: boolean;
+  count?: string;
+  accent?: string;
+};
+
+type NavSection = {
+  title: string;
+  defaultOpen: boolean;
+  items: NavItem[];
+};
+
+const navSections: NavSection[] = [
   {
     title: "Workspace",
     defaultOpen: true,
@@ -150,14 +165,14 @@ export default function DashboardSidebar() {
                           key={item.label}
                           type="button"
                           className={`group flex h-10 w-full items-center gap-3 rounded-2xl px-3 text-sm transition ${
-                            item.active
+                            (item.active ?? false)
                               ? "bg-[#14213d] font-medium text-white shadow-sm shadow-[#14213d]/10"
                               : "text-[#14213d]/68 hover:bg-[#14213d]/6 hover:text-[#14213d] dark:text-white/68 dark:hover:bg-white/8 dark:hover:text-white"
                           }`}
                         >
                           <span
                             className={`grid size-7 shrink-0 place-items-center rounded-xl ${
-                              item.active
+                              (item.active ?? false)
                                 ? "bg-white/14 text-white"
                                 : item.accent
                                   ? `${item.accent} text-[#14213d]`
@@ -172,7 +187,7 @@ export default function DashboardSidebar() {
                           {item.count ? (
                             <span
                               className={`rounded-full px-2 py-0.5 text-[11px] ${
-                                item.active
+                                (item.active ?? false)
                                   ? "bg-white/14 text-white"
                                   : "bg-[#14213d]/6 text-[#14213d]/48 dark:bg-white/8 dark:text-white/48"
                               }`}
