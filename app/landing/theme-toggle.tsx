@@ -37,12 +37,16 @@ export default function ThemeToggle({ children }: { children: ReactNode }) {
       >
         <Sun
           className={`absolute size-4 transition duration-500 ${
-            isDark ? "translate-y-7 rotate-90 opacity-0" : "translate-y-0 rotate-0 opacity-100"
+            isDark
+              ? "translate-y-7 rotate-90 opacity-0"
+              : "translate-y-0 rotate-0 opacity-100"
           }`}
         />
         <Moon
           className={`absolute size-4 transition duration-500 ${
-            isDark ? "translate-y-0 rotate-0 opacity-100" : "-translate-y-7 -rotate-90 opacity-0"
+            isDark
+              ? "translate-y-0 rotate-0 opacity-100"
+              : "-translate-y-7 -rotate-90 opacity-0"
           }`}
         />
       </button>
