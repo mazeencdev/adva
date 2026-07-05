@@ -16,10 +16,6 @@ export default function ThemeToggle({ children }: { children: ReactNode }) {
     localStorage.setItem("adva-theme", isDark ? "dark" : "light");
   }, [isDark]);
 
-  function toggleTheme() {
-    setIsDark((current) => !current);
-  }
-
   return (
     <div
       data-theme={isDark ? "dark" : "light"}
@@ -28,11 +24,12 @@ export default function ThemeToggle({ children }: { children: ReactNode }) {
       }`}
     >
       {children}
+
       <button
         type="button"
         aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
         aria-pressed={isDark}
-        onClick={toggleTheme}
+        onClick={() => setIsDark((prev) => !prev)}
         className="fixed bottom-5 right-5 z-[80] grid size-11 place-items-center overflow-hidden rounded-full border border-[#14213d]/10 bg-white/85 text-[#14213d] shadow-lg shadow-[#14213d]/10 backdrop-blur-xl transition duration-300 hover:-translate-y-0.5 hover:bg-white dark:border-white/10 dark:bg-white/10 dark:text-white dark:shadow-black/30 dark:hover:bg-white/15"
       >
         <Sun
@@ -42,6 +39,7 @@ export default function ThemeToggle({ children }: { children: ReactNode }) {
               : "translate-y-0 rotate-0 opacity-100"
           }`}
         />
+
         <Moon
           className={`absolute size-4 transition duration-500 ${
             isDark

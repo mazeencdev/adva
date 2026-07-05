@@ -1,4 +1,5 @@
 import DashboardSidebar from "@/components/dashboard/sidebar";
+import DashboardLogoutButton from "@/components/dashboard/logout-button";
 import {
   ArrowUpRight,
   CalendarDays,
@@ -100,6 +101,7 @@ export default function DashboardPage() {
             </div>
 
             <div className="flex flex-wrap gap-2">
+              <DashboardLogoutButton />
               <button
                 type="button"
                 className="flex h-10 items-center gap-2 rounded-xl border border-[#14213d]/10 bg-white px-4 text-sm font-medium transition hover:bg-[#14213d]/5"
